@@ -47,9 +47,12 @@ for (i = 2; i <= 10; i += 2) {
 
 // Task 6
 var num = 0;
-while (num < 100) {
+while (num < 100 && num != null) {
     num = prompt('Введите число больше 100', '');
+
 }
+
+
 
 // Task 7
 a + b < 4 ? 'Мало' : 'Много';

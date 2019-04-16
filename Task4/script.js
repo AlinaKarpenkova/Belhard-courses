@@ -1,0 +1,21 @@
+(function ($) {
+    $(document).ready(function () {
+
+        //  Task 1
+
+        $('a').on('click', function (e) {
+            e.preventDefault();
+            console.log($(this).attr('href'));
+        });
+
+        //  Task 2
+        //        
+        $("div.main").mousemove(function (event) {
+            var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+            var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+            $("span:first").text("( event.pageX, event.pageY ) : " + pageCoords);
+            $("span:last").text("( event.clientX, event.clientY ) : " + clientCoords);
+
+        });
+    });
+})(jQuery);

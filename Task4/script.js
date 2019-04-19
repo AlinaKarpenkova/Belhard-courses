@@ -9,13 +9,24 @@
         });
 
         //  Task 2
-        //        
-        $("div.main").mousemove(function (event) {
-            var pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
-            var clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
-            $("span:first").text("( event.pageX, event.pageY ) : " + pageCoords);
-            $("span:last").text("( event.clientX, event.clientY ) : " + clientCoords);
 
+        $(window).mousemove(function (pos) {
+            $("div").css('left', (pos.pageX + 20) + 'px').css('top', (pos.pageY + 20) + 'px');
+
+        });
+
+        //Task 3
+
+        var ul = $('ul');
+        ul.find('li a').on('click', function (e) {
+            var link = $($(this).attr('href'));
+            if (link.length > 0) {
+                e.preventDefault();
+                var offset = link.offset().top;
+                $('body, html').animate({
+                    scrollTop: offset - 30
+                }, 750);
+            }
         });
     });
 })(jQuery);

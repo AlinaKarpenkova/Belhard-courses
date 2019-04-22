@@ -1,3 +1,4 @@
+
 (function ($) {
     $(document).ready(function () {
 
@@ -24,9 +25,9 @@
             if (linkTrgt.length > 0) { // Если такой элемент присутствует
                 e.preventDefault(); // Отменяем переход по умолчанию
                 var offset = linkTrgt.offset().top; // Определяем отступ целевого элемента от начала документа
-
+                var dataOffset = $(linkTrgt).attr('data-offset');
                 $('body, html').animate({
-                    scrollTop: offset - 44
+                    scrollTop: offset - dataOffset
                 }, 750); // Плавно скролим документ к этому месту
             }
         });
@@ -38,9 +39,8 @@
             var curItem = '';
             // Чтобы он туда попал, перебираем все экраны
             $('section').each(function () {
-                var dataOffset = $(this).attr('data-offset');
                 // И если положение экрана от начала страницы меньше текущего скролла
-                if ($(window).scrollTop() > $(this).offset().top - dataOffset) {
+                if ($(window).scrollTop() > $(this).offset().top - 200) {
                     curItem = $(this).attr('id'); // В переменную вносим ID этого экрана
                 }
             });
